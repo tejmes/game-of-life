@@ -1,11 +1,12 @@
-using GameOfLife.Dialogs;
-using GameOfLife.DTOs;
+using GameOfLife.Core;
+using GameOfLife.WinForms.Dialogs;
+using GameOfLife.WinForms.DTOs;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Text;
 using System.Text.Json;
 
-namespace GameOfLife
+namespace GameOfLife.WinForms
 {
     public partial class GameOfLifeForm : Form
     {

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameOfLife
+namespace GameOfLife.Core
 {
-    internal class GameOfLifeLogic
+    public class GameOfLifeLogic
     {
         private bool[,] map;
         private bool[,] mapNext;

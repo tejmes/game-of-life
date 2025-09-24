@@ -1,4 +1,4 @@
-﻿namespace GameOfLife.Dialogs
+﻿namespace GameOfLife.WinForms.Dialogs
 {
     partial class ExportDialog
     {

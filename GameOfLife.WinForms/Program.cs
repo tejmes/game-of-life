@@ -1,4 +1,4 @@
-namespace GameOfLife
+namespace GameOfLife.WinForms
 {
     internal static class Program
     {

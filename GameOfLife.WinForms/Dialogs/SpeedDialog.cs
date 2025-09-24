@@ -8,13 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GameOfLife.Dialogs
+namespace GameOfLife.WinForms.Dialogs
 {
-    public partial class StepNDialog : Form
+    public partial class SpeedDialog : Form
     {
-        public int Steps => (int)numericUpDownSteps.Value;
+        public int Speed
+        {
+            get => (int)numericUpDownSpeed.Value;
+            set => numericUpDownSpeed.Value = value;
+        }
 
-        public StepNDialog()
+        public SpeedDialog()
         {
             InitializeComponent();
         }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameOfLife.DTOs
+namespace GameOfLife.WinForms.DTOs
 {
 
     internal sealed class GolDTO

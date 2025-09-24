@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GameOfLife.Dialogs
+namespace GameOfLife.WinForms.Dialogs
 {
     public partial class ResizeDialog : Form
     {

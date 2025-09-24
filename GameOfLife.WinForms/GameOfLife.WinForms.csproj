@@ -6,7 +6,13 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+	 <AssemblyName>GameOfLife.WinForms</AssemblyName>
+	 <RootNamespace>GameOfLife.WinForms</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GameOfLife.Core\GameOfLife.Core.csproj" />
+  </ItemGroup>
 
   <ItemGroup>
     <Compile Update="GameOfLifeForm.cs">
