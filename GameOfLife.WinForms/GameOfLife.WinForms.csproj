@@ -11,7 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GameOfLife.Core\GameOfLife.Core.csproj" />
+    <ProjectReference Include="..\GameOfLife.Domain\GameOfLife.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

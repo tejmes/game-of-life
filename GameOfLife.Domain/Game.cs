@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameOfLife.Core
+namespace GameOfLife.Domain
 {
-    public class GameOfLifeLogic
+    public class Game
     {
         private bool[,] map;
         private bool[,] mapNext;
@@ -20,7 +20,7 @@ namespace GameOfLife.Core
         public bool Changed { get; private set; }
         public bool WrappedEdges { get; private set; } = true;
 
-        public GameOfLifeLogic()
+        public Game()
         {
             map = new bool[WorldRows, WorldCols];
             mapNext = new bool[WorldRows, WorldCols];
@@ -46,7 +46,7 @@ namespace GameOfLife.Core
             CountAliveCells();
         }
 
-        public void Cycle()
+        public void Step()
         {
             AliveCells = 0;
             bool changed = false;

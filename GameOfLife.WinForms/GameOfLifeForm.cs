@@ -1,4 +1,4 @@
-using GameOfLife.Core;
+using GameOfLife.Domain;
 using GameOfLife.WinForms.Dialogs;
 using GameOfLife.WinForms.DTOs;
 using System.Drawing.Drawing2D;
@@ -10,7 +10,7 @@ namespace GameOfLife.WinForms
 {
     public partial class GameOfLifeForm : Form
     {
-        private readonly GameOfLifeLogic game = new GameOfLifeLogic();
+        private readonly Game game = new Game();
 
         private Bitmap bmp;
 
@@ -108,7 +108,7 @@ namespace GameOfLife.WinForms
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            game.Cycle();
+            game.Step();
             RenderCycle();
 
             if (!game.Changed) PauseSimulation();
@@ -520,7 +520,7 @@ namespace GameOfLife.WinForms
         private void StepSimulation()
         {
             PauseSimulation();
-            game.Cycle();
+            game.Step();
             RenderCycle();
         }
 
@@ -534,7 +534,7 @@ namespace GameOfLife.WinForms
                 {
                     int steps = dialog.Steps;
 
-                    for (int i = 0; i < steps; i++) game.Cycle();
+                    for (int i = 0; i < steps; i++) game.Step();
 
                     RenderCycle();
                 }
