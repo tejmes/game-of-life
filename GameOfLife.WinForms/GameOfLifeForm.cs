@@ -1,6 +1,6 @@
 using GameOfLife.Domain;
 using GameOfLife.WinForms.Dialogs;
-using GameOfLife.WinForms.DTOs;
+using GameOfLife.Application.DTOs;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Text;
@@ -92,6 +92,7 @@ namespace GameOfLife.WinForms
                 }
             }
             pictureBox.Invalidate();
+            pictureBox.Update();
 
             toolStripStatusLabelGeneration.Text = $"Generation: {game.Generation}";
             toolStripStatusLabelAliveCells.Text = $"Alive cells: {game.AliveCells}";
@@ -316,7 +317,7 @@ namespace GameOfLife.WinForms
                     {
                         string json = File.ReadAllText(dialog.FileName);
                         var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-                        var payload = JsonSerializer.Deserialize<GolDTO>(json, options);
+                        var payload = JsonSerializer.Deserialize<GolDto>(json, options);
 
                         if (payload == null)
                         {
@@ -334,7 +335,7 @@ namespace GameOfLife.WinForms
             }
         }
 
-        private void ImportFromPayload(GolDTO payload)
+        private void ImportFromPayload(GolDto payload)
         {
             bool needsResize = payload.WorldRows != game.WorldRows || payload.WorldCols != game.WorldCols;
             if (needsResize) game.Resize(payload.WorldRows, payload.WorldCols);
@@ -353,16 +354,16 @@ namespace GameOfLife.WinForms
 
             if (payload.Wrapped != game.WrappedEdges) game.WrappedEdgesToggle();
 
-            if (payload.Appearances != null)
+            if (payload.Appearance != null)
             {
-                int newCellSizePx = Math.Max(2, Math.Min(32, payload.Appearances.CellSizePx));
+                int newCellSizePx = Math.Max(2, Math.Min(32, payload.Appearance.CellSizePx));
                 if (newCellSizePx != cellSizePx) cellSizePx = newCellSizePx;
 
-                aliveCellColor = Color.FromArgb(payload.Appearances.AliveCellColor);
-                gridColor = Color.FromArgb(payload.Appearances.GridColor);
-                backgroundColor = Color.FromArgb(payload.Appearances.BackgroundColor);
-                gridOn = payload.Appearances.GridOn;
-                centerOnResize = payload.Appearances.CenterOnResize;
+                aliveCellColor = Color.FromArgb(payload.Appearance.AliveCellColor);
+                gridColor = Color.FromArgb(payload.Appearance.GridColor);
+                backgroundColor = Color.FromArgb(payload.Appearance.BackgroundColor);
+                gridOn = payload.Appearance.GridOn;
+                centerOnResize = payload.Appearance.CenterOnResize;
             }
 
             CalculateViewport();
